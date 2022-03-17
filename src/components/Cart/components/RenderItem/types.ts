@@ -6,7 +6,7 @@ export const RenderItemPropTypes = {
     name: propTypes.string.isRequired,
     image: propTypes.string.isRequired,
     price: propTypes.number.isRequired,
-  }),
+  }).isRequired,
   quantity: propTypes.number,
   increaseQuantity: propTypes.func.isRequired,
   decreaseQuantity: propTypes.func.isRequired,
