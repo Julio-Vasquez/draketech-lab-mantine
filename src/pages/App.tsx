@@ -8,8 +8,9 @@ import { getData } from './../services/bikesServices'
 
 const { Col } = Grid
 
-function App() {
+const App = () => {
   const [bikes, setBikes] = useState<any[]>([])
+  const [store, setStore] = useState([{}])
 
   useEffect(() => {
     getData().then(setBikes)
