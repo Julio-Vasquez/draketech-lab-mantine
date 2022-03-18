@@ -10,8 +10,8 @@ const CartHeader = ({ closeCart, emptyCart }) => {
   return (
     <div className={styles.cart_content__header}>
       <div>
-        <Button>
-          <img src={Close} alt="asdsadasdsad" onClick={closeCart} height={30} />
+        <Button onClick={closeCart} variant="subtle">
+          <img src={Close} alt="asdsadasdsad" height={30} />
         </Button>
         <h2>Carrito</h2>
       </div>

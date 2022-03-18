@@ -25,6 +25,7 @@ const Cart = ({ getProductsCar, products, productCart }) => {
   const [totalPrice, setTotalPrice] = useState(0)
 
   useEffect(() => {
+    console.log(productCart)
     const allProductsId = removeDuplicateItems(productCart)
     setSingelProductsCart(allProductsId)
   }, [productCart])
@@ -33,16 +34,19 @@ const Cart = ({ getProductsCar, products, productCart }) => {
     const productData = []
     let totalPriceTemp = 0
     const allProductsId = removeDuplicateItems(productCart)
+
     allProductsId.forEach(productId => {
       productData.push({
         id: productId,
-        quantity: countDuplicateItems(productCart, parseInt(productId)),
+        quantity: countDuplicateItems(productCart, productId),
       })
     })
-    if (!products.loading && products.result) {
-      products.result.forEach(product => {
+
+    if (products) {
+      products.forEach(product => {
+        console.log(product)
         productData.forEach(item => {
-          if (product.id === parseInt(item.id)) {
+          if (product.model === item.id) {
             totalPriceTemp += product.price * item.quantity
           }
         })
@@ -52,7 +56,7 @@ const Cart = ({ getProductsCar, products, productCart }) => {
   }, [productCart, products])
 
   const openCar = () => {
-    setCarOpen(true)
+    setCarOpen(!carOpen)
   }
 
   const closeCar = () => {
@@ -72,7 +76,7 @@ const Cart = ({ getProductsCar, products, productCart }) => {
   }
 
   const decreaseQuantity = id => {
-    const result = removeItem(productCart, id.toString())
+    const result = removeItem(productCart, id)
     localStorage.setItem(STORAGE_PRODUCTS_EC, result)
     getProductsCar()
   }
@@ -86,20 +90,22 @@ const Cart = ({ getProductsCar, products, productCart }) => {
           <img src={CartEmpty} onClick={openCar} height={30} />
         )}
       </Button>
-      <CartHeader closeCart={closeCar} emptyCart={emptyCar} />
-      <div className={styles.cartc_ontent__products}>
-        {singelProductsCart.map((item, key) => (
-          <CartContent
-            increaseQuantity={increaseQuantity}
-            decreaseQuantity={decreaseQuantity}
-            products={products}
-            key={key}
-            idProductsCar={productCart}
-            idProductCar={parseInt(item)}
-          />
-        ))}
+      <div className={styles.cart_content} style={{ width: widthCartContent }}>
+        <CartHeader closeCart={closeCar} emptyCart={emptyCar} />
+        <div className={styles.cartc_ontent__products}>
+          {singelProductsCart.map((item, key) => (
+            <CartContent
+              increaseQuantity={increaseQuantity}
+              decreaseQuantity={decreaseQuantity}
+              products={products}
+              key={key}
+              idProductsCar={productCart}
+              idProductCar={item}
+            />
+          ))}
+        </div>
+        <CartFooter total={totalPrice} />
       </div>
-      <CartFooter total={totalPrice} />
     </div>
   )
 }

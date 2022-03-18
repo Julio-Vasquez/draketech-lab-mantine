@@ -1,14 +1,18 @@
-import { element } from 'prop-types'
+import { element, func, array } from 'prop-types'
 import { AppShell, Header, Container } from '@mantine/core'
 
 import HeaderLayout from '../Header'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, getProductsCar, products, productCart }) => {
   return (
     <AppShell
       header={
         <Header height={60}>
-          <HeaderLayout />
+          <HeaderLayout
+            getProductsCar={getProductsCar}
+            products={products}
+            productCart={productCart}
+          />
         </Header>
       }
     >
@@ -19,6 +23,9 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: element.isRequired,
+  getProductsCar: func.isRequired,
+  products: array.isRequired,
+  productCart: array.isRequired,
 }
 
 export default Layout

@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify'
 
 import Layout from '../components/Layout'
 import CardItem from '../components/CardItem'
-import Cart from './../components/Cart'
+import Header from '../components/Header'
 
 import { getData } from '../services/bikesServices'
 import { STORAGE_PRODUCTS_EC } from './../common/config'
@@ -45,21 +45,19 @@ const App = () => {
     getProductsCar()
   }, [])
 
-  console.log(productCart)
   return (
-    <Layout>
+    <Layout
+      productCart={productCart}
+      getProductsCar={getProductsCar}
+      products={bikes}
+    >
       <div>
-        <Cart
-          productCart={productCart}
-          getProductsCar={getProductsCar}
-          products={bikes}
-        />
         <Grid columns={24}>
           {bikes.map((item, key) => (
             <Col xs={24} sm={12} md={8} lg={6} key={key}>
               <CardItem
                 addCart={addProductCar}
-                price={`Price of this bike is : ${item.price} USD`}
+                price={item.price}
                 title={item?.model}
                 image={item?.imageBicycle || item?.image}
               />
@@ -67,7 +65,7 @@ const App = () => {
           ))}
         </Grid>
         <ToastContainer
-          position="bottom-right"
+          position="bottom-left"
           autoClose={5000}
           newestOnTop
           closeOnClick

@@ -4,27 +4,26 @@ import { Button } from '@mantine/core'
 import styles from './styles.module.scss'
 
 const RenderItem = ({
-  product: { model, image, price, title },
+  product,
   quantity,
   increaseQuantity,
   decreaseQuantity,
 }) => {
-  console.log(product)
   return (
     <div className={styles.cart_content__product}>
-      <img src={`kjhsdfjsdhfsd/${image}`} alt={title} />
+      <img src={product?.imageBicycle || product?.image} alt={product.model} />
       <div className={styles.cart_content__product_info}>
         <div>
-          <h3>title: {title}</h3>
-          <p>Price: $ {price}</p>
+          <h3>title: {product.model}</h3>
+          <p>Price: $ {product.price}</p>
         </div>
         <div>
           <p>En carrito: {quantity} ud</p>
           <div>
-            <Button size="sm" onClick={() => decreaseQuantity(id)}>
+            <Button size="sm" onClick={() => decreaseQuantity(product.model)}>
               -
             </Button>
-            <Button size="sm" onClick={() => increaseQuantity(id)}>
+            <Button size="sm" onClick={() => increaseQuantity(product.model)}>
               +
             </Button>
           </div>
@@ -34,12 +33,7 @@ const RenderItem = ({
   )
 }
 RenderItem.propTypes = {
-  product: propTypes.shape({
-    model: propTypes.string.isRequired,
-    title: propTypes.string.isRequired,
-    image: propTypes.string.isRequired,
-    price: propTypes.number.isRequired,
-  }).isRequired,
+  product: propTypes.any.isRequired,
   quantity: propTypes.number,
   increaseQuantity: propTypes.func.isRequired,
   decreaseQuantity: propTypes.func.isRequired,
