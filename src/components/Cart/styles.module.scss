@@ -1,5 +1,5 @@
 .cart_content {
-  overflow: hidden;
+  overflow-x: hidden;
   position: fixed;
   top: 0;
   right: 0;
@@ -9,8 +9,11 @@
   transition: width 1s;
   z-index: 9;
   .cart_content__products {
-    height: calc(100vh - 76px - 119px);
+    height: calc(100vh - 195px);
     overflow-y: scroll;
+
+    scrollbar-color: #09c;
+    scrollbar-width: 5px;
   }
 }
 .car {

@@ -7,7 +7,7 @@ const CartFooter = ({ total }) => {
   return (
     <div className={cart_content__footer}>
       <div>
-        <p>Total aproximado: </p>
+        <p style={{ fontWeight: 600 }}>Total aproximado: </p>
         <p id="tf">$ {total.toFixed(2)}</p>
       </div>
       <Button color="orange">Tramitar pedido</Button>

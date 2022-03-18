@@ -11,7 +11,7 @@ import {
 
 const { Section } = Card
 
-function CardItem({ image, title, price, addCart }) {
+function CardItem({ image, title, price, addCart, id }) {
   return (
     <Card shadow="sm" className={card__item}>
       <Section>
@@ -26,7 +26,7 @@ function CardItem({ image, title, price, addCart }) {
           className={btn__add}
           color="green"
           fullWidth
-          onClick={() => addCart(title, title)}
+          onClick={() => addCart(id, title)}
         >
           Add to cart
         </Button>

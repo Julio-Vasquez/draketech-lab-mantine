@@ -1,9 +1,9 @@
 import propTypes from 'prop-types'
+import { Loader } from '@mantine/core'
 
 import RenderItem from './../RenderItem'
 
 import { countDuplicateItems } from './../../../../utils/arrayFunctions'
-import { Loader } from '@mantine/core'
 
 const CartContent = ({
   products,
@@ -17,8 +17,8 @@ const CartContent = ({
   return (
     <div>
       {products.map((product, key) => {
-        if (idProductCar === product.model) {
-          const quantity = countDuplicateItems(idProductsCar, product.model)
+        if (idProductCar === product.id) {
+          const quantity = countDuplicateItems(idProductsCar, product.id)
           return (
             <RenderItem
               key={key}

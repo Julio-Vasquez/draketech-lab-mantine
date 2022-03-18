@@ -20,10 +20,10 @@ const RenderItem = ({
         <div>
           <p>En carrito: {quantity} ud</p>
           <div>
-            <Button size="sm" onClick={() => decreaseQuantity(product.model)}>
+            <Button size="sm" onClick={() => decreaseQuantity(product.id)}>
               -
             </Button>
-            <Button size="sm" onClick={() => increaseQuantity(product.model)}>
+            <Button size="sm" onClick={() => increaseQuantity(product.id)}>
               +
             </Button>
           </div>

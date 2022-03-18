@@ -44,7 +44,7 @@ const Cart = ({ getProductsCar, products, productCart }) => {
     if (products) {
       products.forEach(product => {
         productData.forEach(item => {
-          if (product.model === item.id) {
+          if (product.id === item.id) {
             totalPriceTemp += product.price * item.quantity
           }
         })
@@ -67,6 +67,7 @@ const Cart = ({ getProductsCar, products, productCart }) => {
   }
 
   const increaseQuantity = id => {
+    console.log(id)
     const arrayItemsCar = productCart
     arrayItemsCar.push(id)
     localStorage.setItem(STORAGE_PRODUCTS_EC, arrayItemsCar)
@@ -80,7 +81,7 @@ const Cart = ({ getProductsCar, products, productCart }) => {
   }
 
   return (
-    <div style={{ bottom: 0 }}>
+    <div>
       <Button variant="link" className={styles.car} onClick={openCar}>
         {productCart.length > 0 ? (
           <img src={CartFull} height={30} />
