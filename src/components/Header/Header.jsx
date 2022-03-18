@@ -10,16 +10,20 @@ const LayoutHeader = ({ getProductsCar, products, productCart }) => {
   return (
     <>
       <Group position="apart">
-        <Image src={Logo} height={50} width={50} />
+        <Group>
+          <Image src={Logo} height={50} width={50} />
 
-        <Title order={2} className={title}>
-          Diego Bici
-        </Title>
+          <Title order={2} className={title}>
+            Diego Bici y el pollito :c
+          </Title>
+        </Group>
+
         <Cart
           getProductsCar={getProductsCar}
           products={products}
           productCart={productCart}
         />
+        <div></div>
       </Group>
     </>
   )

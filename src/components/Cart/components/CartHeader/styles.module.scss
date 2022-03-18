@@ -10,9 +10,6 @@
     &:first-of-type {
       display: flex;
       img {
-        width: 12px;
-        margin-right: 20px;
-        fill: #fff;
         &:hover {
           cursor: pointer;
         }
@@ -27,22 +24,14 @@
 
   button {
     margin: 0;
-    color: #fff;
 
     &:hover {
       text-decoration: none;
       color: #0098d3;
-
+      background-color: transparent;
       svg {
         fill: #0098d3;
       }
-    }
-
-    svg {
-      height: 20px;
-      width: 20px;
-      fill: #fff;
-      margin-left: 10px;
     }
   }
 }

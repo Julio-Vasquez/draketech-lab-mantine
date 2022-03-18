@@ -8,6 +8,7 @@ import Header from '../components/Header'
 
 import { getData } from '../services/bikesServices'
 import { STORAGE_PRODUCTS_EC } from './../common/config'
+import Footer from '../components/Footer'
 
 const { Col } = Grid
 const App = () => {
@@ -75,6 +76,7 @@ const App = () => {
           draggable
           pauseOnHover={false}
         />
+        <Footer />
       </div>
     </Layout>
   )
