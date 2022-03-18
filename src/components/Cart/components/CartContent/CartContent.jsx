@@ -31,10 +31,7 @@ const CartContent = ({
 }
 
 CartContent.propTypes = {
-  products: propTypes.shape({
-    loading: propTypes.bool.isRequired,
-    result: propTypes.array.isRequired,
-  }),
+  products: propTypes.array,
   idProductsCar: propTypes.array.isRequired,
   idProductCar: propTypes.number.isRequired,
   increaseQuantity: propTypes.func.isRequired,

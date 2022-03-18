@@ -11,11 +11,7 @@ import {
 
 const { Section } = Card
 
-function CardItem({ image, title, text, addCart }) {
-  console.log(image)
-  console.log(title)
-  console.log(text)
-
+function CardItem({ image, title, price, addCart }) {
   return (
     <Card shadow="sm" className={card__item}>
       <Section>
@@ -25,12 +21,12 @@ function CardItem({ image, title, text, addCart }) {
         <Badge color="orange" variant="light" className={card__item_title}>
           {title?.slice(0, 25)}
         </Badge>
-        <Text className={texts}>{text}</Text>
+        <Text className={texts}>Price of this bike is : ${price} USD</Text>
         <Button
           className={btn__add}
           color="green"
           fullWidth
-          onClick={() => addCart(text, title)}
+          onClick={() => addCart(title, title)}
         >
           Add to cart
         </Button>
@@ -42,7 +38,7 @@ function CardItem({ image, title, text, addCart }) {
 CardItem.propTypes = {
   image: propTypes.string.isRequired,
   title: propTypes.string.isRequired,
-  text: propTypes.string.isRequired,
+  price: propTypes.string.isRequired,
   addCart: propTypes.func.isRequired,
 }
 
