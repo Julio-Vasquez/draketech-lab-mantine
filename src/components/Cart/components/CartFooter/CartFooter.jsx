@@ -8,7 +8,7 @@ const CartFooter = ({ total }) => {
     <div className={cart_content__footer}>
       <div>
         <p>Total aproximado: </p>
-        <p>$ {total.toFixed(2)}</p>
+        <p id="tf">$ {total.toFixed(2)}</p>
       </div>
       <Button color="orange">Tramitar pedido</Button>
     </div>

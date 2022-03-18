@@ -9,7 +9,7 @@ import { title } from './style.module.scss'
 const LayoutHeader = ({ getProductsCar, products, productCart }) => {
   return (
     <>
-      <Group>
+      <Group position="apart">
         <Image src={Logo} height={50} width={50} />
 
         <Title order={2} className={title}>

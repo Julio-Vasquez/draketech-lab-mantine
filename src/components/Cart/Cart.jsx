@@ -25,7 +25,6 @@ const Cart = ({ getProductsCar, products, productCart }) => {
   const [totalPrice, setTotalPrice] = useState(0)
 
   useEffect(() => {
-    console.log(productCart)
     const allProductsId = removeDuplicateItems(productCart)
     setSingelProductsCart(allProductsId)
   }, [productCart])
@@ -44,7 +43,6 @@ const Cart = ({ getProductsCar, products, productCart }) => {
 
     if (products) {
       products.forEach(product => {
-        console.log(product)
         productData.forEach(item => {
           if (product.model === item.id) {
             totalPriceTemp += product.price * item.quantity
@@ -82,12 +80,12 @@ const Cart = ({ getProductsCar, products, productCart }) => {
   }
 
   return (
-    <div>
-      <Button variant="link" className="car">
+    <div style={{ bottom: 0 }}>
+      <Button variant="link" className={styles.car} onClick={openCar}>
         {productCart.length > 0 ? (
-          <img src={CartFull} onClick={openCar} height={30} />
+          <img src={CartFull} height={30} />
         ) : (
-          <img src={CartEmpty} onClick={openCar} height={30} />
+          <img src={CartEmpty} height={30} />
         )}
       </Button>
       <div className={styles.cart_content} style={{ width: widthCartContent }}>

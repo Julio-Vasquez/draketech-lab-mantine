@@ -15,7 +15,7 @@ const CartContent = ({
   if (!products) return <Loader />
 
   return (
-    <>
+    <div>
       {products.map((product, key) => {
         if (idProductCar === product.model) {
           const quantity = countDuplicateItems(idProductsCar, product.model)
@@ -30,7 +30,7 @@ const CartContent = ({
           )
         }
       })}
-    </>
+    </div>
   )
 }
 

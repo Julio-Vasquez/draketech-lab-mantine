@@ -15,6 +15,7 @@ const App = () => {
   const [productCart, setProductCart] = useState([])
 
   useEffect(() => {
+    bikes.map(item => console.log(item.price))
     getData().then(setBikes)
   }, [getData])
 
@@ -57,7 +58,7 @@ const App = () => {
             <Col xs={24} sm={12} md={8} lg={6} key={key}>
               <CardItem
                 addCart={addProductCar}
-                price={item.price}
+                price={`${item.price}`}
                 title={item?.model}
                 image={item?.imageBicycle || item?.image}
               />
