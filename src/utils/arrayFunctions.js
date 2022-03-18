@@ -1,4 +1,4 @@
-export const countDuplicateItems = (array: [], value: any) => {
+export const countDuplicateItems = (array, value) => {
   let count = 0
   array.forEach(item => {
     if (parseInt(item) === value) count++
@@ -6,9 +6,9 @@ export const countDuplicateItems = (array: [], value: any) => {
   return count
 }
 
-export const removeDuplicateItems = (array: []) => Array.from(new Set(array))
+export const removeDuplicateItems = array => Array.from(new Set(array))
 
-export const removeItem = (array: [], item: never) => {
+export const removeItem = (array, item) => {
   const index = array.indexOf(item)
   if (index > -1) array.splice(index, 1)
   return array

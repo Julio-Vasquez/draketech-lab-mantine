@@ -1,4 +1,4 @@
-function Footer(): JSX.Element {
+function Footer() {
   return <div>footer</div>
 }
 
