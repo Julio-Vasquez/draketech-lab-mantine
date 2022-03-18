@@ -4,11 +4,15 @@ import { Button } from '@mantine/core'
 import Close from '../../../../assets/img/svg/close.svg'
 import Garbage from '../../../../assets/img/svg/garbage.svg'
 
+import styles from './styles.module.scss'
+
 const CartHeader = ({ closeCart, emptyCart }) => {
   return (
-    <div>
+    <div className={styles.cart_content__header}>
       <div>
-        <img src={Close} alt="asdsadasdsad" onClick={closeCart} />
+        <Button>
+          <img src={Close} alt="asdsadasdsad" onClick={closeCart} height={30} />
+        </Button>
         <h2>Carrito</h2>
       </div>
       <Button variant="subtle" onClick={emptyCart}>

@@ -1,18 +1,21 @@
 import propTypes from 'prop-types'
 import { Button } from '@mantine/core'
 
+import styles from './styles.module.scss'
+
 const RenderItem = ({
-  product: { id, name, price, image },
+  product: { model, image, price, title },
   quantity,
   increaseQuantity,
   decreaseQuantity,
 }) => {
+  console.log(product)
   return (
-    <div className="cart-content__product">
-      <img src={`kjhsdfjsdhfsd/${image}`} alt={name} />
-      <div className="cart-content__product-info">
+    <div className={styles.cart_content__product}>
+      <img src={`kjhsdfjsdhfsd/${image}`} alt={title} />
+      <div className={styles.cart_content__product_info}>
         <div>
-          <h3>title: {name}</h3>
+          <h3>title: {title}</h3>
           <p>Price: $ {price}</p>
         </div>
         <div>
@@ -32,8 +35,8 @@ const RenderItem = ({
 }
 RenderItem.propTypes = {
   product: propTypes.shape({
-    id: propTypes.number.isRequired,
-    name: propTypes.string.isRequired,
+    model: propTypes.string.isRequired,
+    title: propTypes.string.isRequired,
     image: propTypes.string.isRequired,
     price: propTypes.number.isRequired,
   }).isRequired,

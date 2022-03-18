@@ -7,3 +7,5 @@ export const FIREBASE_CONFIG = {
   appId: import.meta.env.VITE_FIREBASE_API_ID,
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 }
+
+export const STORAGE_PRODUCTS_EC = 'draketech-lab'

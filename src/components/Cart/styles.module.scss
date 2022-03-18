@@ -1,0 +1,15 @@
+.cart_content {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #343a40;
+  height: 100vh;
+  text-align: left;
+  transition: width 1s;
+  z-index: 9;
+  .cart_content__products {
+    height: calc(100vh - 76px - 119px);
+    overflow-y: scroll;
+  }
+}

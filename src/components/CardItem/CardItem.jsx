@@ -11,7 +11,11 @@ import {
 
 const { Section } = Card
 
-function CardItem({ image, title, text }) {
+function CardItem({ image, title, text, addCart }) {
+  console.log(image)
+  console.log(title)
+  console.log(text)
+
   return (
     <Card shadow="sm" className={card__item}>
       <Section>
@@ -19,10 +23,15 @@ function CardItem({ image, title, text }) {
       </Section>
       <div className={card__content}>
         <Badge color="orange" variant="light" className={card__item_title}>
-          {title.slice(0, 25)}
+          {title?.slice(0, 25)}
         </Badge>
         <Text className={texts}>{text}</Text>
-        <Button className={btn__add} color="green" fullWidth>
+        <Button
+          className={btn__add}
+          color="green"
+          fullWidth
+          onClick={() => addCart(text, title)}
+        >
           Add to cart
         </Button>
       </div>
@@ -34,6 +43,7 @@ CardItem.propTypes = {
   image: propTypes.string.isRequired,
   title: propTypes.string.isRequired,
   text: propTypes.string.isRequired,
+  addCart: propTypes.func.isRequired,
 }
 
 export default CardItem
